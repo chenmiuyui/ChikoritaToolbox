@@ -275,7 +275,7 @@ class dwchange : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.flashlight_menuitem -> {
-                startActivity(Intent(this, CalcActivity::class.java))
+                startActivity(Intent(this, FlashlightActivity::class.java))
             }
             R.id.about_us_menuitem -> {
                 AlertDialog.Builder(this)
