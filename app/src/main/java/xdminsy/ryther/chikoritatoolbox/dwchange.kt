@@ -274,9 +274,6 @@ class dwchange : AppCompatActivity() {
                 val intent = Intent(this, CalcActivity::class.java)
                 startActivity(intent)
             }
-            R.id.base_converter_menuitem -> {
-                startActivity(Intent(this, dwchange::class.java))
-            }
             R.id.flashlight_menuitem -> {
                 startActivity(Intent(this, CalcActivity::class.java))
             }

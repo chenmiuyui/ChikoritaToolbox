@@ -64,10 +64,6 @@ class CalcActivity : AppCompatActivity(),Calculator {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.calc_menuitem -> {
-                val intent = Intent(this, CalcActivity::class.java)
-                startActivity(intent)
-            }
             R.id.base_converter_menuitem -> {
                 startActivity(Intent(this, dwchange::class.java))
             }
