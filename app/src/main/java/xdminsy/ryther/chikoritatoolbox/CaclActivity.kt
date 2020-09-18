@@ -8,7 +8,7 @@ import xdminsy.ryther.chikoritatoolbox.helpers.Calculator
 import xdminsy.ryther.chikoritatoolbox.helpers.CalculatorImpl
 
 
-class MainActivity : AppCompatActivity(),Calculator {
+class CaclActivity : AppCompatActivity(),Calculator {
     lateinit var calc:CalculatorImpl;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
