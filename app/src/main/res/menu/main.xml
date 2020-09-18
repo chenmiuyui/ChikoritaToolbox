@@ -11,4 +11,10 @@
     <item
         android:id="@+id/flashlight_menuitem"
         android:title="@string/flashlight_name" />
+    <item
+        android:id="@+id/change_theme_menuitem"
+        android:title="@string/change_theme" />
+    <item
+        android:id="@+id/about_us_menuitem"
+        android:title="@string/about_us" />
 </menu>

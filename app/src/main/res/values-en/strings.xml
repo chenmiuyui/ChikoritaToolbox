@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">菊草叶工具箱</string>
+    <string name="app_name">Chikorita Toolbox</string>
     <string name="one">1</string>
     <string name="two">2</string>
     <string name="three">3</string>
@@ -20,14 +20,14 @@
     <string name="per">%</string>
     <string name="zf">+(-)</string>
     <string name="rel">=</string>
-    <string name="len_change">长度转换</string>
-    <string name="temp_change">温度转换</string>
-    <string name="mon_change">货币转换</string>
-    <string name="quit">退出</string>
-    <string name="calc_name">计算器</string>
-    <string name="base_converter_name">进制转换器</string>
-    <string name="flashlight_name">闪光灯</string>
-    <string name="flashlight_button">闪光灯</string>
-    <string name="about_us">关于我们</string>
-    <string name="change_theme">更换样式</string>
+    <string name="len_change">Length</string>
+    <string name="temp_change">Temperature</string>
+    <string name="mon_change">Currency</string>
+    <string name="quit">return</string>
+    <string name="calc_name">Calculator</string>
+    <string name="base_converter_name">Base Converter</string>
+    <string name="flashlight_name">Flashlight</string>
+    <string name="flashlight_button">Flashlight</string>
+    <string name="about_us">About US</string>
+    <string name="change_theme">Chane Theme</string>
 </resources>

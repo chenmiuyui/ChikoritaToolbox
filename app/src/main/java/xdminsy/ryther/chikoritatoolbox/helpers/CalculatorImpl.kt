@@ -103,6 +103,7 @@ class CalculatorImpl(calculator: Calculator, val context: Context) {
 //                callback!!.setResult(baseValue.toString()+lastKey,context)
 //                firstOperation = false
 //            }
+        if(displayedNumber?.isEmpty() != false) return
         when(sign) {
             "=" -> {
                 secondValue = displayedNumber!!.toBigDecimal()

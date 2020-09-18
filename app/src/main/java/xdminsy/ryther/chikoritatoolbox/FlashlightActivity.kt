@@ -2,6 +2,8 @@ package xdminsy.ryther.chikoritatoolbox
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.hardware.Camera
 import android.hardware.camera2.CameraManager
@@ -14,7 +16,10 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
@@ -32,8 +37,11 @@ class FlashlightActivity : AppCompatActivity() {
                 Log.i("DEBUG", "permission denied")
             }
         }
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
+        val perfs = getSharedPreferences("THEME", 0)
+        val myTheme = perfs.getInt("theme", R.style.AppTheme)
+        Log.i("x", "theme $myTheme")
+        setTheme(myTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flashlight)
         flashlightImage = findViewById(R.id.flashlightImage)
@@ -54,6 +62,7 @@ class FlashlightActivity : AppCompatActivity() {
             val cameraManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
             val cameraId = cameraManager.cameraIdList[0]
             lighting = !lighting
+            flashlightImage.setImageResource(if(lighting)R.drawable.torch2 else R.drawable.torch1)
             cameraManager.setTorchMode(cameraId, lighting)
         }
     }
@@ -67,7 +76,30 @@ class FlashlightActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.calc_menuitem -> {
-                Toast.makeText(applicationContext, "calc", Toast.LENGTH_LONG).show()
+                val intent = Intent(this, CalcActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.base_converter_menuitem -> {
+                startActivity(Intent(this, dwchange::class.java))
+            }
+            R.id.flashlight_menuitem -> {
+                startActivity(Intent(this, CalcActivity::class.java))
+            }
+            R.id.about_us_menuitem -> {
+                AlertDialog.Builder(this)
+                    .setTitle("关于我们")
+                    .setMessage("应用 18-1\n吴晓\n陈亮亮\n徐硕胤")
+                    .create()
+                    .show()
+            }
+            R.id.change_theme_menuitem -> {
+//                Toast.makeText(applicationContext, "www。", Toast.LENGTH_LONG).show()
+                val perfs = getSharedPreferences("THEME", 0)
+                val editor = perfs.edit()
+                val myTheme = if(perfs.getInt("theme", R.style.AppTheme) == R.style.AppTheme) R.style.AppTheme2 else R.style.AppTheme
+                editor.putInt("theme", myTheme).commit()
+                finish();
+                startActivity(intent);
             }
             else -> return super.onOptionsItemSelected(item)
         }
